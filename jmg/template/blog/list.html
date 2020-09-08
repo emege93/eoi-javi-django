@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mi blog</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+
+<body>
+
+	<section class="section">
+		<div class="container">
+			<h1 class="title">Mi blog personal</h1>
+				<p class="subtitle">EOI Prueba</p>
+				{% for post in posts %}
+				<div>
+					<p>publised: {{ post.published_date }}</p>
+					<h2>
+                    <a href="{% url 'blog.post_detail' post_slug=post.slug %}">{{ post.title|upper }}</a>
+                    </h2>
+					<p>{{ post.text }}</p>
+				</div>
+                <hr />
+				{% endfor %}
+		</div>
+	</section>
+
+
+</body>
+
+</html>
